@@ -1,0 +1,17 @@
+<div class="mx-auto max-w-2xl ">
+  <h3>Request for Blood</h3>
+  <.simple_form :let={form} for={@changeset} action={~p"/user_detail"} method="post">
+    <div class="form-group" font-size="100%">
+      <.input field={form[:firstname]} label="First Name" />
+      <.input field={form[:lastname]} label="Last Name" />
+      <.input field={form[:age]} label="Age" />
+      <.input field={form[:contact]} label="Contact no." />
+      <.input field={form[:email]} label="E-mail" />
+      <.input field={form[:blood_group]} label="Blood Group" />
+      <.input field={form[:address]} label="Address" />
+    </div>
+    <:actions>
+      <.button>Save</.button>
+    </:actions>
+  </.simple_form>
+</div>

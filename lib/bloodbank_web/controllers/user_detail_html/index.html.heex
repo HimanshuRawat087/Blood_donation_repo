@@ -1,0 +1,32 @@
+<div class="mx-auto max-w-7xl my-6">
+  <h3>Contact a Requesting User</h3>
+  <div class="border my-10">
+    <table>
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Blood Group</th>
+        <th class="text-center">Age</th>
+        <th class="text-center">E-Mail</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">Contact User</th>
+      </tr>
+      <%= for user_detail <- @details  do %>
+        <tr>
+          <td class="text-center"><%= user_detail.firstname %>
+            <%= user_detail.lastname %></td>
+          <td class="text-center"><%= user_detail.blood_group %></td>
+          <td class="text-center"><%= user_detail.age %></td>
+          <td class="text-center"><%= user_detail.email %></td>
+          <td class="text-center"><%= user_detail.address %></td>
+          <td>
+            <.modal id={"user-modal-#{user_detail.id}"}>
+            <h4>Call Now @</h4>
+              <h5>Contact-Number : <%= user_detail.contact %></h5>
+            </.modal>
+            <.button class="w-full" phx-click={show_modal("user-modal-#{user_detail.id}")}>Donate Now</.button>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+   </div>
+</div>
